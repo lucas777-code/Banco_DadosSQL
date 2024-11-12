@@ -73,3 +73,43 @@ Após a criação da tabela, podemos adicionar novos campos. Vamos adicionar uma
 ```SQL
 ALTER TABLE autor
 ADD COLUMN email VARCHAR(100);
+```
+
+## Passo 3: Remover tabela usando 'DROP'
+Se precisar remover uma tabela usamos o comando 'DROP'.
+Neste exemplo vamos remover a tabela 'extra'
+
+```SQL
+DROP TABLE extra;
+```
+
+## Passo 4: Inserindo dados usando 'INSERT'
+Agora que as tabelas ja estão prontas, vamos inserir dados nelas.
+
+#### Passo 4.1 Inserindo dados na tabela 'editora'
+```SQL
+INSERT INTO editora(nome_editora, pais)
+VALUES
+('Editora Alfa', 'Brasil'),
+('Editora Beta', 'Portugal'),
+('Editora Bertrand Brasil', 'Brasil');
+```
+
+#### 4.2 Inserindo dados na tabela 'autor'
+```SQL
+INSERT INTO autor(nome_autor, data_nascimento, email)
+VALUES
+('Jorge Amado', '1912-08-10','jorginho@email.com'),
+('Machado de Assis', '1839-06-21','machadinho@email.com'),
+('Matt Haig','1975-06-03','matt@email.com');
+```
+
+#### 4.3 Inserindo dados na tabela 'assunto'
+```SQL
+INSERT INTO assunto(descricao_assunto)
+VALUES
+('Ficção'),
+('Misterio'),
+('Terror'),
+('Romance');
+```
