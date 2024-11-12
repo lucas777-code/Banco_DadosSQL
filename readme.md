@@ -113,3 +113,48 @@ VALUES
 ('Terror'),
 ('Romance');
 ```
+
+## Passo 5: atualizando os dados usando 'UPDATE'
+Podemos atualizar os dados com o UPADETE.
+Vamos corrigir a data de publicação do livro 'Capitães da Areia'
+
+```SQL
+UPDATE livro
+SET ano_publicacao = 1938
+WHERE titulo = 'Capitães da Areia';
+```
+
+## Passo 6: Excluindo os dados usando 'DELETE'
+Para remoiver os registros de uma tabela usamos o comando 'DELETE'.
+Vamos ecluir o livro 'Memórias Póstumas de Brás Cubas'.
+
+```SQL
+DELETE FROM livro
+WHERE id_livro = 8;
+```
+
+## Passo 7: Consultando os dados usando 'SELECT'
+É possivel selecionar os dados para visualizar da forma como quiser.
+Para isso usamos o comando 'SELECT'
+#### Passo 7.1: selecionar todos os livros com suas editoras e autoras
+Vamos uar dados das tabelas 'livros', 'editora', 'autor' e 'assunto'usando o comando 'JOIN'
+````SQL
+SELECT livro.titulo AS nome,
+       editora.nome_editora AS editora,
+       autor.nome_autor AS autor,
+       assunto.descricao_assunto AS tema,
+       livro.ano_publicaco AS ano   
+FROM livro
+JOIN editora ON livro.id_editora = editora.id_editora.
+JOIN autor ON livro.id_autor = autor.id_autor 
+JOIN assunto ON livro.id_assunto = assunto.id_assunto;
+```
+
+#### Passo 7.2: selecionar todos os livros com o mesmo assunto
+Para selecionar todos os livros que pertencem ao mesmo assunto, podemos fazer uma consulta utilizando o comando 'SELECT' com uma condição 'WHERE' especificando o que deseja visualizar.
+```SQL
+SELECT  livro.titulo AS titulo,
+        assunto.descricao_assunto AS tema
+FROM livro
+JOIN assunto ON livro.assunto = assunto.id_assunto
+WHERE assunto.descricao_assunto = 'Romance';
